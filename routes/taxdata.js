@@ -19,18 +19,6 @@ db.open(function(err, db) {
     }
 });
 
-exports.findByStartDate = function(req, res) {
-    var startDate = req.params.startdate;
-    var testDate = "\"+req.params.startdate+\"";
-    console.log(testDate);
-    console.log('Retrieving date/s: ' + startDate);
-    db.collection('dates', function(err, collection) {
-        collection.find({START:"\"+req.params.startdate+\""}).toArray(function(err, items) {
-            res.send(items);
-        });
-    });
-};
-
 exports.findAll = function(req, res) {
     db.collection('dates', function(err, collection) {
         collection.find().toArray(function(err, items) {
