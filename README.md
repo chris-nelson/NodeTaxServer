@@ -7,6 +7,6 @@ Data from tax.gov/calendar
 
 **Instructions**
 - Clone App
-- import minified taxDates.json into Mongo - mongoimport -d taxdb -c dates taxDates.json
+- import minified json/taxDates.json into Mongo - mongoimport -d taxdb -c dates taxDates.json
 - install dependencies - npm install
 - start server - nodejs server.js
