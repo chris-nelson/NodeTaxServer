@@ -20,11 +20,13 @@ db.open(function(err, db) {
 });
 
 exports.findByStartDate = function(req, res) {
-    var startDate = req.params.date;
-    console.log('Retrieving date/s: ' + date);
+    var startDate = req.params.startdate;
+    var testDate = "\"+req.params.startdate+\"";
+    console.log(testDate);
+    console.log('Retrieving date/s: ' + startDate);
     db.collection('dates', function(err, collection) {
-        collection.findOne({'_START':new BSON.ObjectSTART(date)}, function(err, item) {
-            res.send(item);
+        collection.find({START:"\"+req.params.startdate+\""}).toArray(function(err, items) {
+            res.send(items);
         });
     });
 };
